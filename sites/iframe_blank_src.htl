@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iframe with Text</title>
+<style>
+  iframe {
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+  }
+</style>
+</head>
+<body>
+
+<p>This text is on the mainframe</p>
+
+<iframe id="myFrame" src="about:blank"></iframe>
+
+<script>
+  // Wait for the DOM to be fully loaded before running the script
+  document.addEventListener("DOMContentLoaded", () => {
+      const iframe = document.getElementById('myFrame');
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      iframeDoc.body.innerHTML = '<p>This text is inside the iframe.</p>';
+  });
+</script>
+
+</body>
+</html>
